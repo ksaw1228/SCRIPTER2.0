@@ -1,49 +1,49 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Board, BoardStatus } from './boards.model';
-import { v1 as uuid } from 'uuid';
 import { CreateBoardDto } from './dto/create-board.dto';
+import { BoardRepository } from './board.repository';
+import { Board } from './board.entity';
 
 @Injectable()
 export class BoardsService {
-    private boards : Board[] = []
+    constructor( private boardRepository: BoardRepository){}
 
-    getAllBoards() : Board[]{
-        return this.boards
+    getAllBoards(): Promise<Board[]> {
+        return this.boardRepository.getAllBoard()
     }
 
-    createBoard(creatBoradDto : CreateBoardDto){
-        const {title,description} = creatBoradDto
-
-        const board :Board = {
-            id : uuid(),
-            title,
-            description,
-            status: BoardStatus.PUBLIC
-        }
-
-        this.boards.push(board)
-        return board
+    getBoardById(id:number) : Promise<Board>{
+        return this.boardRepository.getBoardById(id)
     }
 
-    getBoardById(id:string) : Board{
-        const found = this.boards.find(board=>board.id === id)
-        if(!found){
-            throw new NotFoundException(`can't find board id:${id}`)
-        }
-        return found
+    createBoard(CreateBoardDto : CreateBoardDto) :Promise<Board>{
+       return this.boardRepository.createBoard(CreateBoardDto)
     }
 
-    deleteBoard(id:string) : void{
-        const found = this.getBoardById(id)//없으면 이 함수에서 에러날려줌
-        this.boards = this.boards.filter(board=>board.id !== found.id)
+    deletBoardById(id:number) {
+        return this.boardRepository.deleteBoardById(id)
     }
 
-    updateBoardStatus(id:string,status:BoardStatus) : Board{
-        const board = this.getBoardById(id)
-        board.status = status
-        return board
-        //updateBoardStatus 함수에서 board 객체의 데이터가 수정되는 원리는 참조(reference)에 
-        //기초한 동작 방식 때문입니다. JavaScript와 TypeScript에서 객체는 참조 값으로 전달되기 때문에 
-        //원본 객체를 변경할 수 있습니다
+    updateBoard(id:number,newBoard:CreateBoardDto){
+        return this.boardRepository.updateBoard(id,newBoard)
     }
+
+
+
+    // getAllBoards() : Board[]{
+    //     return this.boards
+    // }
+
+    // deleteBoard(id:string) : void{
+    //     const found = this.getBoardById(id)//없으면 이 함수에서 에러날려줌
+    //     this.boards = this.boards.filter(board=>board.id !== found.id)
+    // }
+
+    // updateBoardStatus(id:string,status:BoardStatus) : Board{
+    //     const board = this.getBoardById(id)
+    //     board.status = status
+    //     return board
+    //     //updateBoardStatus 함수에서 board 객체의 데이터가 수정되는 원리는 참조(reference)에 
+    //     //기초한 동작 방식 때문입니다. JavaScript와 TypeScript에서 객체는 참조 값으로 전달되기 때문에 
+    //     //원본 객체를 변경할 수 있습니다
+    // }
 }
