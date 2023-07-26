@@ -33,6 +33,7 @@ export class BoardRepository extends Repository<Board>
         // board.title = title;
         // board.description = description;
         // board.status = BoardStatus.PUBLIC;
+        //아래처럼 create로 작성하면 Board 인스턴스를 바로 생성 가능하다
         const board = this.create({
             title,
             description,
