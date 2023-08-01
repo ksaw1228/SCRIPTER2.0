@@ -1,6 +1,6 @@
 import { DataSource, Repository } from 'typeorm';
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Board } from './entities/board.entity';
+import { Board } from './board.entity';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { BoardStatus } from './boards.status-enum';
 import { User } from 'src/auth/user.entity';
@@ -11,12 +11,10 @@ export class BoardRepository extends Repository<Board> {
     super(Board, dataSource.createEntityManager());
   }
 
-  async getMyBoard(userId: number): Promise<Board[]> {
-    const myBoards = await this.find({
-      select: ['id', 'title'],
-      where: { user: { id: userId } },
-    });
-    return myBoards;
+  async getAllBoard(): Promise<Board[]> {
+    // const allBoards = await this.find({select:['title']})
+    const allBoards = await this.find();
+    return allBoards;
   }
 
   async getBoardById(id: number): Promise<Board> {
