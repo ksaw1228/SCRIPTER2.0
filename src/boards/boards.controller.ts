@@ -10,12 +10,10 @@ import {
   ValidationPipe,
   ParseIntPipe,
   UseGuards,
-  Request,
 } from '@nestjs/common';
 import { BoardsService } from './boards.service';
 import { CreateBoardDto } from './dto/create-board.dto';
-import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe';
-import { Board } from './entities/board.entity';
+import { Board } from './board.entity';
 import { AuthGuard } from '@nestjs/passport';
 import { User } from 'src/auth/user.entity';
 import { GetUser } from 'src/auth/get-user.decorator';
@@ -26,9 +24,13 @@ export class BoardsController {
   constructor(private boardsService: BoardsService) {}
 
   @Get('/')
-  getMyBoard(@Request() req): Promise<Board[]> {
-    const userId = req.user.id;
-    return this.boardsService.getMyBoard(userId);
+  getAllBoards(): Promise<Board[]> {
+    return this.boardsService.getAllBoards();
+  }
+
+  @Get('/:id')
+  getBoardById(@Param('id', ParseIntPipe) id: number): Promise<Board> {
+    return this.boardsService.getBoardById(id);
   }
 
   @Post()
@@ -39,13 +41,6 @@ export class BoardsController {
   ): Promise<Board> {
     return this.boardsService.createBoard(creatBoradDto, user);
   }
-
-  @Get('/:id')
-  getBoardById(@Param('id', ParseIntPipe) id: number): Promise<Board> {
-    return this.boardsService.getBoardById(id);
-  }
-
-
 
   @Delete('/:id')
   deletBoardById(@Param('id', ParseIntPipe) id: number) {

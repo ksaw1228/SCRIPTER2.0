@@ -1,9 +1,8 @@
 import { IsNotEmpty } from 'class-validator';
 
-export class CreateBoardDto {
+export class TypingSaveDto {
   @IsNotEmpty()
-  title: string;
-
+  progress: number;
   @IsNotEmpty()
-  description: string;
+  typedWords: string;
 }

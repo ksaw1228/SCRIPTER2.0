@@ -1,74 +1,22 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { BoardRepository } from './board.repository';
-import { Board } from './entities/board.entity';
+import { Board } from './board.entity';
 import { User } from 'src/auth/user.entity';
 
 @Injectable()
 export class BoardsService {
   constructor(private boardRepository: BoardRepository) {}
 
-  parseSrtSubtitle(data) {
-    data = data.replace(/&nbsp;/gi, ' ');
-    data = data.replace(/<br>/gi, '\u200B');
-    data = data.replace(/<.*?>/g, '');
-    data = data.replace(/<!--[\s\S]*?-->/g, '');
-    data = data.replace(/\u200B/gi, ' ');
-
-    const lines = data.trim().split(/\r?\n\r?\n/);
-
-    return lines.reduce((acc, item, index) => {
-      const content = item
-        .split(/\r?\n/)
-        .slice(2)
-        .join(' ')
-        .replace(/<\/?[^>]+(>|$)/g, '');
-
-      // Check if line is a time code
-      const isTimeCode =
-        /^\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}/.test(content);
-      // Check if line is a number right above a time code (in srt format)
-      const isNumberAboveTimeCode =
-        /^\d+$/.test(content) &&
-        /^\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}/.test(
-          lines[index + 1],
-        );
-
-      if (
-        content &&
-        /\S/.test(content) &&
-        !isTimeCode &&
-        !isNumberAboveTimeCode
-      ) {
-        const cleaned = content
-          .replace(/<[\s\S]*?>/g, '')
-          .replace(/^\([^)]*\)/, '')
-          .trim()
-          .replace(/\r$/, '')
-          .replace(/\\(?=")/g, '');
-        if (cleaned) {
-          acc.push(cleaned);
-        }
-      }
-      return acc;
-    }, []);
-  }
-
-  getMyBoard(uesrId: number): Promise<Board[]> {
-    return this.boardRepository.getMyBoard(uesrId);
+  getAllBoards(): Promise<Board[]> {
+    return this.boardRepository.getAllBoard();
   }
 
   getBoardById(id: number): Promise<Board> {
     return this.boardRepository.getBoardById(id);
   }
 
-  async createBoard(
-    CreateBoardDto: CreateBoardDto,
-    user: User,
-  ): Promise<Board> {
-    //자막데이터 : CreateBoardDto JSON에 파일 확장자도 같이 넣어보내줘야함
-    const data = await this.parseSrtSubtitle(CreateBoardDto.description);
-    CreateBoardDto.description = data;
+  createBoard(CreateBoardDto: CreateBoardDto, user: User): Promise<Board> {
     return this.boardRepository.createBoard(CreateBoardDto, user);
   }
 
