@@ -12,6 +12,8 @@ export class KoreanSubtitle {
   @Column({ type: 'numeric', default: 0 })
   progress: number;
 
-  @ManyToOne(() => Subtitle, (subtitle) => subtitle.koreanSubtitles)
+  @ManyToOne(() => Subtitle, (subtitle) => subtitle.koreanSubtitles, {
+    onDelete: 'CASCADE',
+  })
   subtitle: Subtitle;
 }
