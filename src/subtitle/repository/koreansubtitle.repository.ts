@@ -18,4 +18,25 @@ export class KoreanSubtitleRepository extends Repository<KoreanSubtitle> {
     });
     return await this.save(koreansubtitle);
   }
+  async findOneForScript(id: number) {
+    return await this.findOne({ where: { subtitle: { id } } });
+  }
+
+  async updateProgress(
+    id: number,
+    progress: number,
+  ): Promise<KoreanSubtitle | void> {
+    // Find the englishsubtitle related to the given subtitle id
+    const koreansubtitle = await this.findOne({ where: { subtitle: { id } } });
+
+    if (koreansubtitle) {
+      // Update the progress of the found englishsubtitle
+      koreansubtitle.progress = progress;
+
+      // Save the updated englishsubtitle
+      return await this.save(koreansubtitle);
+    } else {
+      console.log(`No englishsubtitle found with subtitle ID: ${id}`);
+    }
+  }
 }

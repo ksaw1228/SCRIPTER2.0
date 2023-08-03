@@ -24,18 +24,27 @@ export class Subtitle {
   @OneToMany(
     () => TypingProgress,
     (typing_progress) => typing_progress.subtitle,
+    {
+      onDelete: 'CASCADE',
+    },
   )
   typingProgress: TypingProgress[];
 
   @OneToMany(
     () => KoreanSubtitle,
     (korean_subtitle) => korean_subtitle.subtitle,
+    {
+      onDelete: 'CASCADE',
+    },
   )
   koreanSubtitles: KoreanSubtitle[];
 
   @OneToMany(
     () => EnglishSubtitle,
     (english_subtitle) => english_subtitle.subtitle,
+    {
+      onDelete: 'CASCADE',
+    },
   )
   englishSubtitles: EnglishSubtitle[];
 }

@@ -19,16 +19,23 @@ export class TypingProgressRepository extends Repository<TypingProgress> {
     console.log(typingProgress);
     return await this.save(typingProgress);
   }
-  //업데이트
-  updateTypingProgress(typingSaveDto: TypingSaveDto, subtitle: Subtitle) {
-    subtitle; //로 타이핑 정보 업데이트할subtitle 찾고
+
+  async getTypingProgress(id: number) {
+    return await this.findOne({ where: { subtitle: { id } } });
+  }
+
+  async updateTypingProgress(id: number, typingSaveDto: TypingSaveDto) {
     const { progress, typedWords } = typingSaveDto;
-    //?
-    const typingProgress = this.create({
-      progress,
-      typedWords,
-      subtitle,
-    });
-    return this.save(typingProgress);
+    const typingProgress = await this.findOne({ where: { subtitle: { id } } });
+    if (typingProgress) {
+      // Update the progress of the found englishsubtitle
+      typingProgress.progress = progress;
+      typingProgress.typedWords = typedWords;
+
+      // Save the updated englishsubtitle
+      return await this.save(typingProgress);
+    } else {
+      console.log(`No englishsubtitle found with subtitle ID: ${id}`);
+    }
   }
 }

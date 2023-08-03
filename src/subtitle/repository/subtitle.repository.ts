@@ -17,4 +17,12 @@ export class SubtitleRepository extends Repository<Subtitle> {
     });
     return await this.save(subtitle);
   }
+  async getAllMySubtitles(user: User) {
+    const { id } = user;
+    return await this.find({ where: { user: { id } } });
+  }
+  async deletSubtitleById(id: number) {
+    const result = await this.delete(id);
+    return result;
+  }
 }
