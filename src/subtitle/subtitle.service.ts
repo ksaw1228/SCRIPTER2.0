@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { SubtitleRepository } from './repository/subtitle.repository';
 import { CreateSubtitleDto } from './dto/create-subtitle.dto';
 import { User } from 'src/auth/user.entity';
@@ -17,6 +17,7 @@ export class SubtitleService {
     private typingprogressrepository: TypingProgressRepository,
   ) {}
 
+  //자막 업로드
   async createSubtitle(createSubTitleDto: CreateSubtitleDto, user: User) {
     const { koreanSubtitle, englishSubtitle } = createSubTitleDto;
 
@@ -36,6 +37,7 @@ export class SubtitleService {
     this.typingprogressrepository.storeTypingProgress(savedSubtitle);
     return savedSubtitle;
   }
+
   getAllMySubtitles(user: User) {
     return this.subtitleRepository.getAllMySubtitles(user);
   }
@@ -48,18 +50,16 @@ export class SubtitleService {
       .where('subtitle.id = :id', { id: subtitleId })
       .getOne();
     if (!subtitle) {
-      throw new HttpException('URL Error', HttpStatus.FORBIDDEN);
-      //에러 수정해야댐 다른거로
+      throw new NotFoundException(`can't find ${subtitleId}`);
     }
     return subtitle.user.id;
   }
 
   async findOneForScript(id: number) {
-    const englishSubtitle =
-      await this.englishsubtitlerepository.findOneForScript(id);
-    const koreanSubtitle = await this.koreansubtitlerepository.findOneForScript(
-      id,
-    );
+    // eslint-disable-next-line prettier/prettier
+    const englishSubtitle = await this.englishsubtitlerepository.findOneForScript(id);
+    // eslint-disable-next-line prettier/prettier
+    const koreanSubtitle = await this.koreansubtitlerepository.findOneForScript(id);
     return {
       englishSubtitle,
       koreanSubtitle,
@@ -90,6 +90,7 @@ export class SubtitleService {
   updateTypingProgress(id: number, typingSave: TypingSaveDto) {
     this.typingprogressrepository.updateTypingProgress(id, typingSave);
   }
+
   deletSubtitleById(id: number) {
     return this.subtitleRepository.deletSubtitleById(id);
   }

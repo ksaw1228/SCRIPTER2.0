@@ -19,11 +19,11 @@ export class TypingProgressRepository extends Repository<TypingProgress> {
     console.log(typingProgress);
     return await this.save(typingProgress);
   }
-
+  //타이핑 저장상황 불러오기
   async getTypingProgress(id: number) {
     return await this.findOne({ where: { subtitle: { id } } });
   }
-
+  //타이핑 저장상황 업데이트
   async updateTypingProgress(id: number, typingSaveDto: TypingSaveDto) {
     const { progress, typedWords } = typingSaveDto;
     const typingProgress = await this.findOne({ where: { subtitle: { id } } });

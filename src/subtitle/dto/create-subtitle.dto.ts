@@ -1,7 +1,11 @@
 import { IsNotEmpty } from 'class-validator';
 
 export class SubtitleDto {
+  @IsNotEmpty()
   content: string;
+
+  @IsNotEmpty()
+  fileExtension: string;
 }
 
 export class CreateSubtitleDto {
