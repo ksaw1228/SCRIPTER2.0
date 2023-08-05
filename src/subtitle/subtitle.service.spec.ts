@@ -15,4 +15,8 @@ describe('SubtitleService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('test', () => {
+    expect(service.getAuthorId).toBeDefined();
+  });
 });
