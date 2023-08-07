@@ -6,7 +6,7 @@ import { Subtitle } from './entities/subtitle.entity';
 import { KoreanSubtitle } from './entities/koreansubtitle.entity';
 import { EnglishSubtitle } from './entities/englishsubtitle.entity';
 import { TypingProgress } from './entities/typingprogress.entity';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from '../auth/auth.module';
 import { SubtitleRepository } from './repository/subtitle.repository';
 import { EnglishSubtitleRepository } from './repository/englishSubtitle.repository';
 import { KoreanSubtitleRepository } from './repository/koreanSubtitle.repository';

@@ -6,7 +6,6 @@ import {
   HttpException,
   HttpStatus,
   Param,
-  ParseIntPipe,
   Patch,
   Post,
   UseGuards,
@@ -14,8 +13,8 @@ import {
 } from '@nestjs/common';
 import { SubtitleService } from './subtitle.service';
 import { CreateSubtitleDto } from './dto/create-subtitle.dto';
-import { GetUser } from 'src/auth/get-user.decorator';
-import { User } from 'src/auth/user.entity';
+import { GetUser } from '../auth/get-user.decorator';
+import { User } from '../auth/user.entity';
 import { AuthGuard } from '@nestjs/passport';
 import { ScriptSaveDto } from './dto/script-save.dto';
 import { TypingSaveDto } from './dto/typing-save.dto';
