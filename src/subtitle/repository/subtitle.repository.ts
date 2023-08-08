@@ -24,7 +24,7 @@ export class SubtitleRepository extends Repository<Subtitle> {
     return await this.find({ where: { user: { id } } });
   }
   //자막 삭제
-  async deletSubtitleById(id: number) {
+  async deleteSubtitleById(id: number) {
     const result = await this.delete(id);
     return result;
   }

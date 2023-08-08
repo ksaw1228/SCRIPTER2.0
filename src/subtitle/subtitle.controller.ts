@@ -81,6 +81,6 @@ export class SubtitleController {
     if (authorId !== user.id) {
       throw new HttpException('Permission Error', HttpStatus.FORBIDDEN);
     }
-    return this.subtitleService.deletSubtitleById(id);
+    return this.subtitleService.deleteSubtitleById(id);
   }
 }

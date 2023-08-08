@@ -91,7 +91,7 @@ export class SubtitleService {
     this.typingprogressrepository.updateTypingProgress(id, typingSave);
   }
 
-  deletSubtitleById(id: number) {
-    return this.subtitleRepository.deletSubtitleById(id);
+  deleteSubtitleById(id: number) {
+    return this.subtitleRepository.deleteSubtitleById(id);
   }
 }
