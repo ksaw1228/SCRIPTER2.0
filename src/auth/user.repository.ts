@@ -14,7 +14,7 @@ export class UserRepository extends Repository<User> {
     super(User, dataSource.createEntityManager());
   }
 
-  async creatUser(authCredentialDto: AuthCredentialDto): Promise<void> {
+  async creatUser(authCredentialDto: AuthCredentialDto): Promise<User> {
     const { username, password } = authCredentialDto;
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -22,7 +22,7 @@ export class UserRepository extends Repository<User> {
     const user = this.create({ username, password: hashedPassword }); //인스턴스 간단하게 생성
 
     try {
-      await this.save(user);
+      return await this.save(user);
     } catch (error) {
       if ((error.code = '23505')) {
         throw new ConflictException('id 중복');

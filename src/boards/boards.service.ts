@@ -20,6 +20,19 @@ export class BoardsService {
     return this.boardRepository.createBoard(CreateBoardDto, user);
   }
 
+  //작성자 열람자 조회
+  async getAuthorId(boardId: number) {
+    const board = await this.boardRepository
+      .createQueryBuilder('board')
+      .leftJoinAndSelect('board.user', 'user')
+      .where('board.id = :id', { id: boardId })
+      .getOne();
+    if (!board) {
+      throw new NotFoundException(`can't find ${boardId}`);
+    }
+    return board.user.id;
+  }
+
   deletBoardById(id: number) {
     return this.boardRepository.deleteBoardById(id);
   }

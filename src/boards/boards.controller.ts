@@ -10,6 +10,8 @@ import {
   ValidationPipe,
   ParseIntPipe,
   UseGuards,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common';
 import { BoardsService } from './boards.service';
 import { CreateBoardDto } from './dto/create-board.dto';
@@ -43,7 +45,11 @@ export class BoardsController {
   }
 
   @Delete('/:id')
-  deletBoardById(@Param('id', ParseIntPipe) id: number) {
+  async deleteSubtitle(@Param('id') id: number, @GetUser() user: User) {
+    const authorId = await this.boardsService.getAuthorId(id);
+    if (authorId !== user.id) {
+      throw new HttpException('Permission Error', HttpStatus.FORBIDDEN);
+    }
     return this.boardsService.deletBoardById(id);
   }
 
