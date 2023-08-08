@@ -84,7 +84,7 @@ describe('SubtitleService', () => {
   });
 
   describe('createSubtitle', () => {
-    it('should call repositories correctly and create a subtitle', async () => {
+    it('입력값을 나누어 각 레파지토리의 생성 메서드에 입력값을 주고 호출', async () => {
       const savedSubtitle = { id: 1 };
       subtitleRepositoryMock.createSubtitle.mockResolvedValue(savedSubtitle);
       const result = await subtitleService.createSubtitle(

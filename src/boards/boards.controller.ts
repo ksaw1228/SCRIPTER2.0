@@ -19,7 +19,7 @@ import { User } from '../auth/user.entity';
 import { GetUser } from '../auth/get-user.decorator';
 
 @Controller('boards')
-@UseGuards(AuthGuard()) //토큰이 없으면 아래 모든 요청에 접근 불가능 또한 req안에 유저정보가 항상 포함되어있음
+@UseGuards(AuthGuard())
 export class BoardsController {
   constructor(private boardsService: BoardsService) {}
 
