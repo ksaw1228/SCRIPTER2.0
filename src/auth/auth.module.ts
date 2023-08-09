@@ -17,7 +17,7 @@ const jwtConfig = config.get('jwt');
     JwtModule.register({
       secret: process.env.JWT_SECRET || jwtConfig.secret,
       signOptions: {
-        expiresIn: jwtConfig.expiresIn, //유효시간 ms
+        expiresIn: jwtConfig.expriesIn, //유효시간 ms
       },
     }),
     PassportModule.register({ defaultStrategy: 'jwt' }),

@@ -1,7 +1,7 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import * as config from 'config'
+import * as config from 'config';
 
-const dbconfig = config.get('db')
+const dbconfig = config.get('db');
 export const typeORMConfig: TypeOrmModuleOptions = {
   type: dbconfig.type,
   host: process.env.RDS_HOSTNAME || dbconfig.host,

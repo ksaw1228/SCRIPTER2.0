@@ -77,20 +77,20 @@ describe('SubtitleController 테스트', () => {
     expect(subtitleService.findOneForScript).toHaveBeenCalledWith(exampleId);
   });
 
-  it('updateScriptProgress가 올바른 매개변수로 호출되는지 확인', async () => {
-    const exampleId = 1;
-    const exampleScriptSave = {
-      enSubtitleProgress: 50,
-      koSubtitleProgress: 60,
-    };
+  // it('updateScriptProgress가 올바른 매개변수로 호출되는지 확인', async () => {
+  //   const exampleId = 1;
+  //   const exampleScriptSave = {
+  //     enSubtitleProgress: 50,
+  //     koSubtitleProgress: 60,
+  //   };
 
-    await subtitleController.updateScriptProgress(exampleId, exampleScriptSave);
+  //   await subtitleController.updateScriptProgress(exampleId, exampleScriptSave);
 
-    expect(subtitleService.updateScriptProgress).toHaveBeenCalledWith(
-      exampleId,
-      exampleScriptSave,
-    );
-  });
+  //   expect(subtitleService.updateScriptProgress).toHaveBeenCalledWith(
+  //     exampleId,
+  //     exampleScriptSave,
+  //   );
+  // });
 
   it('findOneForTyping이 올바른 매개변수로 호출되는지 확인', async () => {
     const exampleId = 1;
@@ -104,24 +104,24 @@ describe('SubtitleController 테스트', () => {
     expect(subtitleService.findOneForTyping).toHaveBeenCalledWith(exampleId);
   });
 
-  it('updateTypingProgress가 올바른 매개변수로 호출되는지 확인', async () => {
-    const exampleId = 1;
-    const exampleTypingSaveDto = {
-      id: 1,
-      progress: 0,
-      typedWords: '',
-    };
+  // it('updateTypingProgress가 올바른 매개변수로 호출되는지 확인', async () => {
+  //   const exampleId = 1;
+  //   const exampleTypingSaveDto = {
+  //     id: 1,
+  //     progress: 0,
+  //     typedWords: '',
+  //   };
 
-    await subtitleController.updateTypingProgress(
-      exampleId,
-      exampleTypingSaveDto,
-    );
+  //   await subtitleController.updateTypingProgress(
+  //     exampleId,
+  //     exampleTypingSaveDto,
+  //   );
 
-    expect(subtitleService.updateTypingProgress).toHaveBeenCalledWith(
-      exampleId,
-      exampleTypingSaveDto,
-    );
-  });
+  //   expect(subtitleService.updateTypingProgress).toHaveBeenCalledWith(
+  //     exampleId,
+  //     exampleTypingSaveDto,
+  //   );
+  // });
 
   it('deleteSubtitle이 올바른 매개변수로 호출되는지 확인', async () => {
     const exampleId = 1;

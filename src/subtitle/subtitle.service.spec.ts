@@ -72,8 +72,8 @@ describe('SubtitleService', () => {
     user = new User();
     createSubtitleDto = {
       title: 'testSub',
-      koreanSubtitle: { content: '안녕하세요', fileExtension: 'srt' },
-      englishSubtitle: { content: 'Hello', fileExtension: 'srt' },
+      koreanSubtitle: { content: '안녕하세요' },
+      englishSubtitle: { content: 'Hello' },
     };
   });
 
