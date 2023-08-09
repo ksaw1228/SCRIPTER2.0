@@ -19,7 +19,7 @@ export class BoardRepository extends Repository<Board> {
 
   async getBoardById(id: number): Promise<Board> {
     const found = await this.findOneBy({ id: id });
-    if (!id) {
+    if (!found) {
       throw new NotFoundException(`can't find ${id}`);
     } else {
       return found;

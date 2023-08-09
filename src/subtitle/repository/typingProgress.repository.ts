@@ -16,7 +16,6 @@ export class TypingProgressRepository extends Repository<TypingProgress> {
       typedWords: '',
       subtitle,
     });
-    console.log(typingProgress);
     return await this.save(typingProgress);
   }
   //타이핑 저장상황 불러오기

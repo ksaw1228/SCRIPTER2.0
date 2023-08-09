@@ -38,7 +38,6 @@ describe('SubtitleController 테스트', () => {
     subtitleService = moduleRef.get<SubtitleService>(SubtitleService);
   });
 
-  // createSubtitle 메서드 테스트
   it('createSubtitle이 올바른 매개변수로 호출되는지 확인', async () => {
     const exampleCreateSubtitleDto = {
       title: '예제 제목',
@@ -60,14 +59,12 @@ describe('SubtitleController 테스트', () => {
     );
   });
 
-  // getAllMySubtitles 메서드 테스트
   it('getAllMySubtitles이 올바른 매개변수로 호출되는지 확인', async () => {
     await subtitleController.getAllMySubtitles(exampleUser);
 
     expect(subtitleService.getAllMySubtitles).toHaveBeenCalledWith(exampleUser);
   });
 
-  // findOneForScript 메서드 테스트
   it('findOneForScript이 올바른 매개변수로 호출되는지 확인', async () => {
     const exampleId = 1;
     const exampleAuthorId = 1;
@@ -80,7 +77,6 @@ describe('SubtitleController 테스트', () => {
     expect(subtitleService.findOneForScript).toHaveBeenCalledWith(exampleId);
   });
 
-  // updateScriptProgress 메서드 테스트
   it('updateScriptProgress가 올바른 매개변수로 호출되는지 확인', async () => {
     const exampleId = 1;
     const exampleScriptSave = {
@@ -96,7 +92,6 @@ describe('SubtitleController 테스트', () => {
     );
   });
 
-  // findOneForTyping 메서드 테스트
   it('findOneForTyping이 올바른 매개변수로 호출되는지 확인', async () => {
     const exampleId = 1;
     const exampleAuthorId = 1;
@@ -109,7 +104,6 @@ describe('SubtitleController 테스트', () => {
     expect(subtitleService.findOneForTyping).toHaveBeenCalledWith(exampleId);
   });
 
-  // updateTypingProgress 메서드 테스트
   it('updateTypingProgress가 올바른 매개변수로 호출되는지 확인', async () => {
     const exampleId = 1;
     const exampleTypingSaveDto = {
@@ -129,7 +123,6 @@ describe('SubtitleController 테스트', () => {
     );
   });
 
-  // deleteSubtitle 메서드 테스트
   it('deleteSubtitle이 올바른 매개변수로 호출되는지 확인', async () => {
     const exampleId = 1;
     const exampleAuthorId = 1;

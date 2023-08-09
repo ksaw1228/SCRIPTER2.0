@@ -3,7 +3,6 @@ import { Injectable } from '@nestjs/common';
 import { EnglishSubtitle } from '../entities/englishsubtitle.entity';
 import { SubtitleDto } from '../dto/create-subtitle.dto';
 import { Subtitle } from '../entities/subtitle.entity';
-import { parseSubtitle } from '../utill/subtitleParse.utill';
 
 @Injectable()
 export class EnglishSubtitleRepository extends Repository<EnglishSubtitle> {
@@ -11,10 +10,9 @@ export class EnglishSubtitleRepository extends Repository<EnglishSubtitle> {
     super(EnglishSubtitle, dataSource.createEntityManager());
   }
   async createEnglishSubtitle(subtitleDto: SubtitleDto, subtitle: Subtitle) {
-    let { content } = subtitleDto;
-    const { fileExtension } = subtitleDto;
+    const { content } = subtitleDto;
 
-    content = parseSubtitle(content, fileExtension);
+    // content = parseSubtitle(content, fileExtension);
     const englishsubtitle = this.create({
       content,
       progress: 0,

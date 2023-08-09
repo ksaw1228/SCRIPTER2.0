@@ -33,7 +33,7 @@ export class SubtitleController {
     this.subtitleService.createSubtitle(createSubtitleDto, user);
   }
 
-  //업로드한 전체 자막 목록
+  //작성자가 업로드한 전체 자막 목록
   @Get()
   getAllMySubtitles(@GetUser() user: User) {
     return this.subtitleService.getAllMySubtitles(user);
@@ -50,10 +50,15 @@ export class SubtitleController {
   }
 
   @Patch('/:id/script')
-  updateScriptProgress(
+  async updateScriptProgress(
     @Param('id') id: number,
+    @GetUser() user: User,
     @Body(ValidationPipe) scriptSave: ScriptSaveDto,
   ) {
+    const authorId = await this.subtitleService.getAuthorId(id);
+    if (authorId !== user.id) {
+      throw new HttpException('Permission Error', HttpStatus.FORBIDDEN);
+    }
     return this.subtitleService.updateScriptProgress(id, scriptSave);
   }
 
@@ -68,10 +73,15 @@ export class SubtitleController {
   }
 
   @Patch('/:id/typing')
-  updateTypingProgress(
+  async updateTypingProgress(
     @Param('id') id: number,
+    @GetUser() user: User,
     @Body(ValidationPipe) typingSaveDto: TypingSaveDto,
   ) {
+    const authorId = await this.subtitleService.getAuthorId(id);
+    if (authorId !== user.id) {
+      throw new HttpException('Permission Error', HttpStatus.FORBIDDEN);
+    }
     this.subtitleService.updateTypingProgress(id, typingSaveDto);
   }
 

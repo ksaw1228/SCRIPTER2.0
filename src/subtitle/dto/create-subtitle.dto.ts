@@ -1,11 +1,9 @@
-import { IsNotEmpty } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsNotEmpty, ValidateNested } from 'class-validator';
 
 export class SubtitleDto {
   @IsNotEmpty()
   content: string;
-
-  @IsNotEmpty()
-  fileExtension: string;
 }
 
 export class CreateSubtitleDto {
@@ -13,8 +11,12 @@ export class CreateSubtitleDto {
   title: string;
 
   @IsNotEmpty()
+  @ValidateNested()
+  @Type(() => SubtitleDto)
   koreanSubtitle: SubtitleDto;
 
   @IsNotEmpty()
+  @ValidateNested()
+  @Type(() => SubtitleDto)
   englishSubtitle: SubtitleDto;
 }

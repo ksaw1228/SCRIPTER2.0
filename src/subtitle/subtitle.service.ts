@@ -25,16 +25,17 @@ export class SubtitleService {
       createSubTitleDto,
       user,
     );
-    this.englishsubtitlerepository.createEnglishSubtitle(
+    await this.englishsubtitlerepository.createEnglishSubtitle(
       englishSubtitle,
       savedSubtitle,
     );
-    this.koreansubtitlerepository.createKoreanSubtitle(
+    await this.koreansubtitlerepository.createKoreanSubtitle(
       koreanSubtitle,
       savedSubtitle,
     );
+
     //초기테이블 생성 id만 연결
-    this.typingprogressrepository.storeTypingProgress(savedSubtitle);
+    await this.typingprogressrepository.storeTypingProgress(savedSubtitle);
     return savedSubtitle;
   }
 
