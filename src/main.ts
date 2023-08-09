@@ -1,14 +1,21 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as bodyParser from 'body-parser';
+import * as config from 'config';
+import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  // 크기 제한을 변경한 JSON 파서를 추가합니다.
-  app.use(bodyParser.json({ limit: '1mb' }));
 
-  // 크기 제한을 변경한 URL-encoded 파서를 추가합니다.
+  app.enableCors();
+
+  app.use(bodyParser.json({ limit: '1mb' }));
   app.use(bodyParser.urlencoded({ limit: '1mb', extended: true }));
-  await app.listen(3000);
+
+  const serverConfig = config.get('server');
+  const port = serverConfig.port;
+
+  await app.listen(port);
+  Logger.log(`sever running on ${port}`);
 }
 bootstrap();
