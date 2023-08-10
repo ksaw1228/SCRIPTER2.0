@@ -5,6 +5,7 @@ import * as config from 'config';
 import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
+  console.log(process.env.RDS_HOSTNAME);
   const app = await NestFactory.create(AppModule);
 
   app.enableCors();
@@ -14,7 +15,6 @@ async function bootstrap() {
 
   const serverConfig = config.get('server');
   const port = serverConfig.port;
-  console.log(process.env.RDS_HOSTNAME);
   await app.listen(port);
   Logger.log(`sever running on ${port}`);
 }
