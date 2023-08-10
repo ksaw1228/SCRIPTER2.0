@@ -3,7 +3,6 @@ import { AppModule } from './app.module';
 import * as bodyParser from 'body-parser';
 import * as config from 'config';
 import { Logger } from '@nestjs/common';
-require('dotenv').config();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
