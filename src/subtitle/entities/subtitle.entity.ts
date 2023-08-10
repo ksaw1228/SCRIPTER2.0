@@ -6,7 +6,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import { User } from '../../auth/user.entity';
-import { TypingProgress } from './typingProgress.entity';
+import { TypingProgress } from './typingprogress.entity';
 import { KoreanSubtitle } from './koreansubtitle.entity';
 import { EnglishSubtitle } from './englishsubtitle.entity';
 
