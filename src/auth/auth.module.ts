@@ -10,6 +10,8 @@ import { JwtStrategy } from './jwt.strategy';
 import * as config from 'config';
 
 const jwtConfig = config.get('jwt');
+require('dotenv').config();
+
 
 @Module({
   imports: [

@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import * as bodyParser from 'body-parser';
 import * as config from 'config';
 import { Logger } from '@nestjs/common';
+require('dotenv').config();
 
 async function bootstrap() {
   console.log(process.env.RDS_HOSTNAME);
