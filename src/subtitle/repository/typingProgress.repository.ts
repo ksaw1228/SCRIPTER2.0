@@ -4,6 +4,7 @@ import { TypingProgress } from '../entities/typingprogress.entity';
 import { TypingSaveDto } from '../dto/typing-save.dto';
 import { Subtitle } from '../entities/subtitle.entity';
 
+//여기 파일명 대소문자가 github에서는 안바뀌네요
 @Injectable()
 export class TypingProgressRepository extends Repository<TypingProgress> {
   constructor(private dataSource: DataSource) {
@@ -34,7 +35,7 @@ export class TypingProgressRepository extends Repository<TypingProgress> {
       // Save the updated englishsubtitle
       return await this.save(typingProgress);
     } else {
-      console.log(`No englishsubtitle found with subtitle ID: ${id}`);
+      console.log(`No Eenglishsubtitle found with subtitle ID: ${id}`);
     }
   }
 }
