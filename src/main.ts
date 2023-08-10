@@ -14,7 +14,7 @@ async function bootstrap() {
 
   const serverConfig = config.get('server');
   const port = serverConfig.port;
-
+  console.log(process.env.RDS_HOSTNAME);
   await app.listen(port);
   Logger.log(`sever running on ${port}`);
 }
