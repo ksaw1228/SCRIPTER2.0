@@ -8,9 +8,9 @@ import { EnglishSubtitle } from './entities/englishsubtitle.entity';
 import { TypingProgress } from './entities/typingprogress.entity';
 import { AuthModule } from '../auth/auth.module';
 import { SubtitleRepository } from './repository/subtitle.repository';
-import { EnglishSubtitleRepository } from './repository/englishSubtitle.repository';
-import { KoreanSubtitleRepository } from './repository/koreanSubtitle.repository';
-import { TypingProgressRepository } from './repository/typingProgress.repository';
+import { EnglishSubtitleRepository } from './repository/englishsubtitle.repository';
+import { KoreanSubtitleRepository } from './repository/koreansubtitle.repository';
+import { TypingProgressRepository } from './repository/typingprogress.repository';
 
 @Module({
   imports: [

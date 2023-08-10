@@ -2,9 +2,9 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { SubtitleRepository } from './repository/subtitle.repository';
 import { CreateSubtitleDto } from './dto/create-subtitle.dto';
 import { User } from '../auth/user.entity';
-import { EnglishSubtitleRepository } from './repository/englishSubtitle.repository';
-import { KoreanSubtitleRepository } from './repository/koreanSubtitle.repository';
-import { TypingProgressRepository } from './repository/typingProgress.repository';
+import { EnglishSubtitleRepository } from './repository/englishsubtitle.repository';
+import { KoreanSubtitleRepository } from './repository/koreansubtitle.repository';
+import { TypingProgressRepository } from './repository/typingprogress.repository';
 import { ScriptSaveDto } from './dto/script-save.dto';
 import { TypingSaveDto } from './dto/typing-save.dto';
 
