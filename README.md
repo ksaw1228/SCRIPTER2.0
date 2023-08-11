@@ -1,4 +1,5 @@
-# SCRIPTER 📚🗣️
+# SCRIPTER 2.0 📚🗣️ 
+[SCRIPTER Ver 1.0 Github Repository](https://github.com/ksaw1228/SCRIPTER)
 
 [SCRIPTER](https://earnest-fuze-387700.du.r.appspot.com)는 영화와 미드의 자막을 이용해 영어 학습을 도와주는 웹 사이트입니다.<br>
 자막 파일에서 **대사만 추출**하여 타이핑하거나 한/영 스크립트를 동시에 읽어 제공합니다.
