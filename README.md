@@ -60,7 +60,7 @@ Express와 NoSQL 기반의 MongoDB를 사용하여  개발을 진행했습니다
 
 최종적으로는 속도와 성능면에서 우수한 go Lang을 마이크로 서비스로 사용해 데이터를 파싱할 계획을 가지고 있습니다.
 
-### 시퀀스 다이어그램
+### 자막 POST 로직
 <img width="803" alt="S3 시퀀스" src="https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/d04b7e24-c15a-43f3-b0a6-1979804ced25">
 
 
@@ -77,7 +77,7 @@ Express와 NoSQL 기반의 MongoDB를 사용하여  개발을 진행했습니다
 
 **데이터 캐싱 기법으로 `AWS ElastiCache` / `Redis`를 사용하여 자막 ID와 작성자 ID 데이터를 캐싱함으로써 
 불필요한 데이터베이스 통신을 줄였습니다.**
-### 시퀀스 다이어그램
+### 개별 자막 Get 로직
 <img width="754" alt="redis시퀀스" src="https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/3694259b-a3ac-4aa3-bef8-ae348bd46fa1">
 
 
@@ -124,6 +124,9 @@ Jest를 이용하여 테스트 주도 개발(TDD)을 도입하여 테스트 코�
 DTO를 만들어 데이터 형식을 체크하였습니다. 
 
 이를 통해 사용자의 입력값을 검증하고, 잘못된 값으로 인한 SQL 인젝션 공격이나 다른 입력값 공격을 예방할 수 있었습니다.
+
+### QnA 게시판 생성 Post 로직
+<img width="800" alt="스크린샷 2023-08-11 오후 10 14 15" src="https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/fe3fba19-2513-4db4-b682-61406ebf01d2"> 
 
 ### 6. Nestjs 리팩토링으로 인한 부하 증가 고려
 현재 AWS EC2 프리티어 인스턴스인 t2.micro를 사용하고 있습니다.
