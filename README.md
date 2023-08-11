@@ -6,6 +6,18 @@
 영어 학습의 훌륭한 교보재인 자막 파일을 한/영 스크립트로써 사용하여, 영어 스피킹과 라이팅 능력을 향상시킬 수 있는 서비스 입니다.<br>
 ***기존 자막 파일에는 대사뿐만 아니라 시간정보,마크다운 언어 등 불필요한 데이터가 많이 포함되어 있어,<br> 사용자가 편리하게 학습할 수 있도록 불필요한 데이터를 제거해줍니다.***<br><br>
 두 개의 스크립트 파일을 동시에 볼 때 발생하는 불편함을 해결하고 진행 상황과 성취도를 가시화하여<br> 영어 학습을 보다 편리하게 도와주기 위한 목표를 가지고 있습니다.
+<br/><br/>
+
+## 🌐 접속 주소
+
+[https://earnest-fuze-387700.du.r.appspot.com](https://earnest-fuze-387700.du.r.appspot.com)
+<br/><br/>
+
+## 🔐 테스트 계정
+
+- **ID**: test123
+- **PW**: testing123!
+  <br/><br/>
 
 ## 🛠️Stacks
 
@@ -15,21 +27,18 @@
 ### IaaS : <img src="https://img.shields.io/badge/AWS EC2-232F3E?style=for-the-badge&logo=Amazon&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/AWS RDS-232F3E?style=for-the-badge&logo=Amazon&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/AWS S3-232F3E?style=for-the-badge&logo=Amazon&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/AWS elasticache-232F3E?style=for-the-badge&logo=Amazon&logoColor=white"/>
 ### Test : <img src='https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white'>&nbsp;
 
-## 🌐 접속 주소
 
-[https://earnest-fuze-387700.du.r.appspot.com](https://earnest-fuze-387700.du.r.appspot.com)
+---
+<br/>
 
-## 🔐 테스트 계정
-
-- **ID**: test123
-- **PW**: testing123!
-
-## About Project
+# 리팩토링 이유
 
 > 이전 프로젝트에서 빠른 프로토타입 구현을 목표로 아키텍처 패턴을 따로 적용하지 않고 
 Express와 NoSQL 기반의 MongoDB를 사용하여  개발을 진행했습니다.
 그러나 서비스를 운영하면서 추가적인 요구사항에 대한 기능 확장 및 유지보수에 어려움을 겪게 되었고, 
 이에 따라 기존 Express 프로젝트를 NestJS로 **리팩토링** 하기로 결정했습니다.
+<br/>
+<br/>
 
 ## 개선점과 리팩토링 요구사항
 ### 1. 작성자만이 열람 가능한 자막에 대한 추가 보안 작업 필요 [Redis]
