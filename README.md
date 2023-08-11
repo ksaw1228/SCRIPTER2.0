@@ -126,7 +126,7 @@ DTO를 만들어 데이터 형식을 체크하였습니다.
 이를 통해 사용자의 입력값을 검증하고, 잘못된 값으로 인한 SQL 인젝션 공격이나 다른 입력값 공격을 예방할 수 있었습니다.
 
 ### QnA 게시판 생성 Post 로직
-<img width="800" alt="스크린샷 2023-08-11 오후 10 14 15" src="https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/fe3fba19-2513-4db4-b682-61406ebf01d2"> 
+<img width="809" alt="스크린샷 2023-08-11 오후 10 29 55" src="https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/0bb6afc5-d89c-4377-b751-b6fe3c9d4980">
 
 ### 6. Nestjs 리팩토링으로 인한 부하 증가 고려
 현재 AWS EC2 프리티어 인스턴스인 t2.micro를 사용하고 있습니다.
