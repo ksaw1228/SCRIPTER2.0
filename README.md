@@ -9,15 +9,16 @@
 두 개의 스크립트 파일을 동시에 볼 때 발생하는 불편함을 해결하고 진행 상황과 성취도를 가시화하여<br> 영어 학습을 보다 편리하게 도와주기 위한 목표를 가지고 있습니다.
 <br/><br/>
 
-## 🌐 접속 주소
+## 🌐 사용 방법
 
-[https://earnest-fuze-387700.du.r.appspot.com](https://earnest-fuze-387700.du.r.appspot.com)
-<br/><br/>
+1. [SCRIPTER](https://earnest-fuze-387700.du.r.appspot.com) 에 접속하세요
+2. "스크립트 업로드하기" 버튼을 클릭하세요
+3. 테트스 계정으로 로그인 하시거나 회원가입하세요
+   - **ID**: test123
+    - **PW**: testing123!
+4. 자막 목록에서 타이핑,스크립트 중 원하는 학습방법을 선택 후 학습을 진행하시면 됩니다
 
-## 🔐 테스트 계정
-
-- **ID**: test123
-- **PW**: testing123!
+<img src="https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/bb763b4f-60d8-4303-a2bc-a7cfe8125bad"/>
   <br/><br/>
 
 ## 🛠️Stacks
