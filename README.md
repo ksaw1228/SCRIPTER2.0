@@ -1,5 +1,5 @@
 # SCRIPTER 2.0 📚🗣️ 
-[SCRIPTER Ver 1.0 Github Repository](https://github.com/ksaw1228/SCRIPTER)
+리팩토링 이전 코드 :[SCRIPTER Ver 1.0 Github Repository](https://github.com/ksaw1228/SCRIPTER)
 
 [SCRIPTER](https://earnest-fuze-387700.du.r.appspot.com)는 영화와 미드의 자막을 이용해 영어 학습을 도와주는 웹 사이트입니다.<br>
 자막 파일에서 **대사만 추출**하여 타이핑하거나 한/영 스크립트를 동시에 읽어 제공합니다.
@@ -21,6 +21,7 @@
 
 <img src="https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/bb763b4f-60d8-4303-a2bc-a7cfe8125bad"/>
   <br/><br/>
+  
 ## 🛠️Stacks
 
 ### Front-End : <img src="https://img.shields.io/badge/ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/React.js-61DAFB?style=for-the-badge&logo=React&logoColor=white"/>&nbsp;
