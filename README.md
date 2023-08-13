@@ -10,6 +10,7 @@
 <br/><br/>
 
 ## 🌐 사용 방법
+**!현재 백엔드 코드 리팩토링 후 변경된 API와 기능에 대응하는 프론트 코드를 준비중에 있는 관계로 현재 서비스 중인 사이트는 1.0Version임을 안내드립니다.!**
 
 1. [SCRIPTER](https://earnest-fuze-387700.du.r.appspot.com) 에 접속하세요
 2. "스크립트 업로드하기" 버튼을 클릭하세요
@@ -20,7 +21,6 @@
 
 <img src="https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/bb763b4f-60d8-4303-a2bc-a7cfe8125bad"/>
   <br/><br/>
-
 ## 🛠️Stacks
 
 ### Front-End : <img src="https://img.shields.io/badge/ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/React.js-61DAFB?style=for-the-badge&logo=React&logoColor=white"/>&nbsp;
@@ -102,7 +102,7 @@ Express와 NoSQL 기반의 MongoDB를 사용하여  개발을 진행했습니다
 TypeORM 0.2 버전의 Repository 패턴을 사용하면, 정규화된 테이블마다 각각의 Repository를 생성해야 합니다. 
 이는 코드의 가독성과 유지보수성을 저하시키는 요인이 된다고 판단하였습니다.
 
-**이에 따라 TypeORM 0.3 버전을 사용하여 `Service`에 직접 `Entity`를 주입하여 `Repository` 패턴을 통합한 결과, 코드의 가독성과 유지보수성이 향상되었습니다. 또한, `Jest`를 사용하여 Unit Test를 작성하는 과정에서, `Repository` 패턴을 사용한 경우보다 테스트 코드가 간결해지고 명확해지는 경험을 하였습니다.**
+**이에 따라 TypeORM 0.3 버전을 사용하여 `Service`에 직접 `Entity`를 주입하여 `Repository` 패턴을 통합한 결과, 코드의 가독성과 유지보수성이 향상되었습니다. <br><br>또한, `Jest`를 사용하여 Unit Test를 작성하는 과정에서, `Repository` 패턴을 사용한 경우보다 테스트 코드가 간결해지고 명확해지는 경험을 하였습니다.**
 
 
 ### 4. 유지보수를 위한 문서화, 아키택쳐 패턴 적용 필요
@@ -129,8 +129,11 @@ DTO를 만들어 데이터 형식을 체크하였습니다.
 ### QnA 게시판 생성 Post 로직
 <img width="809" alt="스크린샷 2023-08-11 오후 10 29 55" src="https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/0bb6afc5-d89c-4377-b751-b6fe3c9d4980">
 
-### 6. Nestjs 리팩토링으로 인한 부하 증가 고려
-현재 AWS EC2 프리티어 인스턴스인 t2.micro를 사용하고 있습니다.
+### 6. 소셜 로그인 추가(JWT)
+소셜 로그인이 필요한다는 유저의 요청사항이 있었습니다.
+기존 서비스에서 사용중이었던 session 방식의 유저 인증으로는 소셜 로그인을 구현할수 없다고 판단하여 유저 인증 방식을 기존 session JWT로 변경하였습니다.
+
+또한 현재 AWS EC2 프리티어 인스턴스인 t2.micro를 사용하고 있습니다.
 동일한 서비스 로직이라 하더라도 Express에서 NestJS로 리팩토링 하는 과정에서, 부하가 조금 증가할 수 있다고 생각했습니다. 그래서 서버의 메모리 사용을 줄이기 위해 기존 session 방식에서 JWT 방식으로 변경했습니다
 
 
