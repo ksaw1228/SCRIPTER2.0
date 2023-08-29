@@ -32,7 +32,7 @@
 ### IaaS : <img src="https://img.shields.io/badge/AWS EC2-232F3E?style=for-the-badge&logo=Amazon&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/AWS RDS-232F3E?style=for-the-badge&logo=Amazon&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/AWS S3-232F3E?style=for-the-badge&logo=Amazon&logoColor=white"/>&nbsp;<img src="https://img.shields.io/badge/AWS elasticache-232F3E?style=for-the-badge&logo=Amazon&logoColor=white"/>
 ### Test : <img src='https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white'>&nbsp;
 
-## 프로젝트 구조
+## 서비스 아키텍처
 
 <img width=70% height=70% src="https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/096f5317-25ce-4e90-a737-989493a8decb"/>
 
