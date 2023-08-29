@@ -22,7 +22,7 @@
 4. 자막 목록에서 타이핑,스크립트 중 원하는 학습방법을 선택 후 학습을 진행하시면 됩니다
 </details>
 
-<img width=70% height=70% src="https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/bb763b4f-60d8-4303-a2bc-a7cfe8125bad"/>
+<img width=70% height=70% src="https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/75d4f2ab-f249-41aa-92f5-44b1e82242a5"/>
 
 ## 🛠️Stacks
 
