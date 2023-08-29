@@ -74,10 +74,6 @@ Jest를 이용하여 테스트 주도 개발(TDD)을 도입하여 테스트 코�
 
 또한, 혼자서 다수의 서비스 코드를 작성하며 각 로직에 대한 인식이 흐려질 때가 있었으나, **테스트 코드가 문서화 역할을 하는 것을 경험**하면서, TDD에 대한 긍정적 경험을 얻었습니다.
 
-![스크린샷 2023-08-25 오전 10 33 27](https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/31d976e9-4337-4d2d-a1e4-69198aefc4b4)
-
-사진 출처: https://www.impactqa.com/blog/what-is-tdd-test-driven-development-and-its-steps/
-
 ---
 
 ### 3. 평균 4만자(50KB)의 잦은 데이터 입출력으로 인한 서버 부하 개선 필요 [S3]
