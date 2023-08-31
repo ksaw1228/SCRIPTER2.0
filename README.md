@@ -64,7 +64,9 @@ Express와 NoSQL 기반의 MongoDB를 사용하여  개발을 진행했습니다
 의존성 역전 원칙을 통해 고차원의 정책을 변경 없이 하위 모듈간의 구현 변경이 가능하도록 구성하였습니다.
 결과적으로, 클린 아키텍처를 사용하여 애플리케이션의 로직과 외부 의존성을 분리하면서 유지보수와 확장성을 개선할 수 있었습니다.
 
-![Untitled-2023-08-25-0952](https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/97e11288-4d31-42b4-9516-3965285ae028)
+<img width=40% height=40% src="https://github.com/ksaw1228/SCRIPTER2.0/assets/48974380/97e11288-4d31-42b4-9516-3965285ae028"/>
+
+<img width=40% height=40% src="https://github.com/ksaw1228/NSfootballServer/assets/48974380/117a2b03-1b2d-4b1d-b805-ddf339c24b36"/>
 
 ---
 
