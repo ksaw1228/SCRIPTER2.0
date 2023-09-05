@@ -10,6 +10,7 @@ dotenv.config();
     {
       provide: 'CACHE_MANAGER',
       useFactory: () =>
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         require('cache-manager').caching({
           store: redisStore,
           //ElastiCache 앤드포인트
