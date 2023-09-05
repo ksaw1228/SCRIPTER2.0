@@ -7,6 +7,7 @@ import { KoreanSubtitleRepository } from './repository/koreansubtitle.repository
 import { TypingProgressRepository } from './repository/typingprogress.repository';
 import { ScriptSaveDto } from './dto/script-save.dto';
 import { TypingSaveDto } from './dto/typing-save.dto';
+import { RedisCacheService } from '../redis/redis.service';
 
 @Injectable()
 export class SubtitleService {
@@ -15,6 +16,7 @@ export class SubtitleService {
     private englishsubtitlerepository: EnglishSubtitleRepository,
     private koreansubtitlerepository: KoreanSubtitleRepository,
     private typingprogressrepository: TypingProgressRepository,
+    private redisCacheService: RedisCacheService,
   ) {}
 
   //자막 업로드
@@ -36,6 +38,10 @@ export class SubtitleService {
 
     //초기테이블 생성 id만 연결
     await this.typingprogressrepository.storeTypingProgress(savedSubtitle);
+
+    //DB저장 완료 후 Redis 캐싱
+    await this.redisCacheService.setSubtitleAuthor(savedSubtitle.id, user.id);
+
     return savedSubtitle;
   }
 
@@ -45,15 +51,23 @@ export class SubtitleService {
 
   //작성자 열람자 조회
   async getAuthorId(subtitleId: number) {
-    const subtitle = await this.subtitleRepository
-      .createQueryBuilder('subtitle')
-      .leftJoinAndSelect('subtitle.user', 'user')
-      .where('subtitle.id = :id', { id: subtitleId })
-      .getOne();
-    if (!subtitle) {
-      throw new NotFoundException(`can't find ${subtitleId}`);
+    //Redis로 먼저 조회
+    try {
+      const authorId = await this.redisCacheService.getAuthorBySubtitle(
+        subtitleId,
+      );
+      return authorId;
+    } catch {
+      const subtitle = await this.subtitleRepository
+        .createQueryBuilder('subtitle')
+        .leftJoinAndSelect('subtitle.user', 'user')
+        .where('subtitle.id = :id', { id: subtitleId })
+        .getOne();
+      if (!subtitle) {
+        throw new NotFoundException(`can't find ${subtitleId}`);
+      }
+      return subtitle.user.id;
     }
-    return subtitle.user.id;
   }
 
   async findOneForScript(id: number) {
