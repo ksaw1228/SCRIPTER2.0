@@ -16,7 +16,7 @@ dotenv.config();
           //ElastiCache 앤드포인트
           host: process.env.REDIS_HOST,
           port: process.env.REDIS_PORT,
-          ttl: 1000,
+          ttl: 2600000,
         }),
     },
     RedisCacheService,

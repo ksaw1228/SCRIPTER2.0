@@ -58,6 +58,7 @@ export class SubtitleService {
       );
       return authorId;
     } catch {
+      //DB로 조회
       const subtitle = await this.subtitleRepository
         .createQueryBuilder('subtitle')
         .leftJoinAndSelect('subtitle.user', 'user')
@@ -66,6 +67,11 @@ export class SubtitleService {
       if (!subtitle) {
         throw new NotFoundException(`can't find ${subtitleId}`);
       }
+      //만료된 캐시 데이터 DB 조회 후 다시 캐싱
+      await this.redisCacheService.setSubtitleAuthor(
+        subtitle.id,
+        subtitle.user.id,
+      );
       return subtitle.user.id;
     }
   }

@@ -10,7 +10,7 @@ export class RedisCacheService {
   }
 
   //자막id로 작성자id 리턴
-  async getAuthorBySubtitle(subtitleId: string): Promise<string | undefined> {
+  async getAuthorBySubtitle(subtitleId: number): Promise<string | undefined> {
     return await this.cacheManager.get(subtitleId);
   }
 }
